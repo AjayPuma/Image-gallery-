@@ -1,0 +1,280 @@
+/* html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #6200ea;
+    color: white;
+    border-radius: 8px 8px 0 0;
+}
+
+.button--go-back {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.dynamic-title {
+    margin: 0;
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+nav {
+    flex: 0 0 80px;
+    background-color: #eeeeee;
+    border-right: 1px solid #ddd;
+}
+
+.navigation__list-container {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.nav-button[aria-selected="true"] .avatar-icon {
+    border: 2px solid #6200ea;
+}
+
+.label {
+    margin-top: 5px;
+    font-size: 0.8rem;
+}
+
+.avatar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #6200ea;
+    color: white;
+    border-radius: 50%;
+    transition: border 0.3s ease;
+}
+
+.avatar-icon--svg {
+    width: 20px;
+    height: 20px;
+}
+
+.image__gallery {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.image__gallery-collection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+[data-hidden="true"] {
+    display: none;
+}
+
+.image-item {
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-item:hover {
+    transform: scale(1.05);
+}
+
+.full-screen {
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 90%;
+    max-width: 500px;
+    max-height: 500px;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.full-screen img {
+    width: 100%;
+    height: 100%;
+}
+
+.close-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    z-index: 101;
+}
+
+.close-btn:after {
+    content: '×';
+    display: block;
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+    line-height: 30px;
+}
+
+[data-hidden="true"]+.close-btn {
+    display: block;
+} */
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.gallery {
+    column-count: 3;
+    column-gap: 10px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+
+.gallery-item {
+    cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    break-inside: avoid;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.lightbox img {
+    border-radius: 8px;
+    max-width: 90%;
+    max-height: 80%;
+    margin: auto;
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.lightbox .prev,
+.lightbox .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.lightbox .prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.lightbox .next {
+    right: 0;
+    border-radius: 3px 3px 0 0;
+}
